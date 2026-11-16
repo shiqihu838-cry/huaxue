@@ -24,7 +24,7 @@
 </section></main>
 <script>
 const KEY='jilin-ski-budget-v1';
-const initial={songDays:2,beiDays:7,roomSplit:2,coachSplit:1,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coach:790,boardRent:100,bootRent:30,bootBuy:0,helmetBuy:0,gogglesBuy:0,snowwearBuy:0,buttGuardBuy:0,baseLayerBuy:0,faceCoverBuy:0,glovesBuy:0,socksBuy:0,padsBuy:0,car:350,insurance:120,other:0},counts:{flight:1,food:22,coach:2,car:2,insurance:1,other:1,bootBuy:1,helmetBuy:1,gogglesBuy:1,snowwearBuy:1,buttGuardBuy:1,baseLayerBuy:1,faceCoverBuy:1,glovesBuy:1,socksBuy:1,padsBuy:1}};
+const initial={songDays:2,beiDays:7,roomSplit:2,coachSplit:1,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coach:795,boardRent:100,bootRent:30,bootBuy:0,helmetBuy:0,gogglesBuy:0,snowwearBuy:0,buttGuardBuy:0,baseLayerBuy:0,faceCoverBuy:0,glovesBuy:0,socksBuy:0,padsBuy:0,car:350,insurance:120,other:0},counts:{flight:1,food:22,coach:2,car:2,insurance:1,other:1,bootBuy:1,helmetBuy:1,gogglesBuy:1,snowwearBuy:1,buttGuardBuy:1,baseLayerBuy:1,faceCoverBuy:1,glovesBuy:1,socksBuy:1,padsBuy:1}};
 let state=load();
 const definitions=[
  ['flight','往返机票','元/人','fixed','填写每人机票总价'],
@@ -49,7 +49,7 @@ const definitions=[
  ['insurance','滑雪/旅行保险','元','fixed','按保单总价填写'],
  ['other','其他费用','元','fixed','可填写其他开销']
 ];
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');return {...initial,...s,prices:{...initial.prices,...(s.prices||{})},counts:{...initial.counts,...(s.counts||{})}}}catch{return JSON.parse(JSON.stringify(initial))}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');const prices={...initial.prices,...(s.prices||{})};if(prices.coach===790)prices.coach=795;return {...initial,...s,prices,counts:{...initial.counts,...(s.counts||{})}}}catch{return JSON.parse(JSON.stringify(initial))}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('saveStatus').textContent='已自动保存'}catch{document.getElementById('saveStatus').textContent='此浏览器无法保存'}}
 function num(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function fmt(v){return '¥'+Math.round(v).toLocaleString('zh-CN')}
