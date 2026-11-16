@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#234b68"><title>吉林滑雪预算</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#213348;background:#f3f6fa;font-synthesis:none}*{box-sizing:border-box}body{margin:0;padding:14px}.app{max-width:720px;margin:0 auto}.hero{background:#234b68;color:white;padding:22px 20px;border-radius:18px 18px 0 0}.hero h1{font-size:22px;margin:0 0 4px}.hero p{margin:0;color:#d7e5ee;font-size:13px}.total{background:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9eef2}.total small{color:#718096}.total strong{display:block;font-size:30px;color:#234b68}.saved{font-size:12px;color:#43805d}.card{background:white;padding:17px 20px;border-bottom:1px solid #e9eef2}.card:last-child{border-radius:0 0 18px 18px}.card h2{font-size:16px;margin:0 0 12px}.params{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.param label{display:block;font-size:12px;color:#64748b}.param input,.cell input{width:100%;font:inherit;border:1px solid #cbd8e3;border-radius:8px;padding:10px;background:#f2f7fb;color:#203047;margin-top:4px}.heads,.item{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(80px,.7fr) minmax(64px,.5fr) 78px;gap:8px;align-items:center}.heads{font-size:11px;color:#758398;padding:0 0 7px}.item{padding:9px 0;border-top:1px solid #edf1f5}.title{font-size:13px;font-weight:600}.hint{font-size:11px;color:#7a8999;margin-top:2px}.cell{font-size:11px;color:#6c7b8d}.cell input{padding:8px 5px;text-align:right;font-size:13px}.amount{text-align:right;font-size:13px;font-weight:700;white-space:nowrap}.warn{background:#fff7e6;color:#755a20;border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.5;margin-top:12px}.foot{padding:13px 2px 0;font-size:11px;color:#718096;line-height:1.5}.btn{margin-top:12px;border:0;border-radius:9px;padding:9px 12px;background:#e9eff4;color:#34546c;font:inherit;font-size:12px}.totalrow{font-size:12px;color:#718096}
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#213348;background:#f3f6fa;font-synthesis:none}*{box-sizing:border-box}body{margin:0;padding:14px}.app{max-width:720px;margin:0 auto}.hero{background:#234b68;color:white;padding:22px 20px;border-radius:18px 18px 0 0}.hero h1{font-size:22px;margin:0 0 4px}.hero p{margin:0;color:#d7e5ee;font-size:13px}.total{background:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9eef2}.total small{color:#718096}.total strong{display:block;font-size:30px;color:#234b68}.saved{font-size:12px;color:#43805d}.card{background:white;padding:17px 20px;border-bottom:1px solid #e9eef2}.card:last-child{border-radius:0 0 18px 18px}.card h2{font-size:16px;margin:0 0 12px}.params{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.param label{display:block;font-size:12px;color:#64748b}.param input,.cell input{width:100%;font:inherit;border:1px solid #cbd8e3;border-radius:8px;padding:10px;background:#f2f7fb;color:#203047;margin-top:4px}.heads,.item{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(80px,.7fr) minmax(64px,.5fr) 78px;gap:8px;align-items:center}.heads{font-size:11px;color:#758398;padding:0 0 7px}.item{padding:9px 0;border-top:1px solid #edf1f5}.title{font-size:13px;font-weight:600}.hint{font-size:11px;color:#7a8999;margin-top:2px}.cell{font-size:11px;color:#6c7b8d}.cell input{padding:8px 5px;text-align:right;font-size:13px}.amount{text-align:right;font-size:13px;font-weight:700;white-space:nowrap}.warn{background:#fff7e6;color:#755a20;border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.55;margin-top:12px}.foot{padding:13px 2px 0;font-size:11px;color:#718096;line-height:1.5}.btn{margin-top:12px;border:0;border-radius:9px;padding:9px 12px;background:#e9eff4;color:#34546c;font:inherit;font-size:12px}.totalrow{font-size:12px;color:#718096}
 @media(max-width:430px){body{padding:8px}.hero{padding:18px}.card{padding:15px 13px}.heads,.item{grid-template-columns:minmax(95px,1fr) 67px 53px 63px;gap:5px}.cell input{font-size:12px;padding:8px 3px}.title{font-size:12px}.amount{font-size:12px}.heads span{font-size:10px}.total strong{font-size:27px}}
 </style></head>
 <body><main class="app">
@@ -18,42 +18,51 @@
 <div class="param"><label for="nights">住宿晚数</label><input id="nights" type="number" min="0" step="1" value="10"></div>
 </div></section>
 <section class="card"><h2>费用明细</h2><div class="heads"><span>项目</span><span>单价（元）</span><span>数量</span><span style="text-align:right">人均小计</span></div><div id="items"></div>
-<div class="warn">北大湖雪票先按 ¥30/天填入，需确认实际价格及是否含缆车。司机接送先按每次往返整车 ¥350估算，拿到报价后修改单价。浅蓝色数字可以直接改。</div>
+<div class="warn"><b>雪鞋怎么选：</b>租三件套 ¥130/天可拆成板+固定器 ¥100/天、雪鞋 ¥30/天。滑9天，租鞋合计 ¥270；买鞋后将“雪鞋租赁”单价改为0，并在“雪鞋购买”填一次性购入价。建议第一次先租着试脚感；雪鞋应贴合、脚趾轻触鞋头、屈膝时脚跟尽量不抬且无痛点。其他想买的装备，在对应行填购买总价。</div>
 <button class="btn" id="reset">恢复初始估算</button>
-<div class="foot">修改会自动保存在当前手机浏览器，下次用同一浏览器打开会保留。不同手机或浏览器之间不会自动同步。预算未含未填写的额外交通、晚餐差额及个人购物。</div>
+<div class="foot">修改会自动保存在当前手机浏览器，下次用同一浏览器打开会保留。不同设备之间不会自动同步。购买项默认¥0，填入实际价格后会计入本次预算；预算未含其他未填写的交通、餐饮和购物。</div>
 </section></main>
 <script>
 const KEY='jilin-ski-budget-v1';
-const initial={songDays:2,beiDays:7,roomSplit:2,coachSplit:1,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coach:790,gear:130,clothes:50,helmet:50,car:350,insurance:120,other:0},counts:{flight:1,food:22,coach:2,car:2,insurance:1,other:1}};
+const initial={songDays:2,beiDays:7,roomSplit:2,coachSplit:1,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coach:790,boardRent:100,bootRent:30,bootBuy:0,helmetBuy:0,gogglesBuy:0,snowwearBuy:0,buttGuardBuy:0,baseLayerBuy:0,faceCoverBuy:0,glovesBuy:0,socksBuy:0,padsBuy:0,car:350,insurance:120,other:0},counts:{flight:1,food:22,coach:2,car:2,insurance:1,other:1,bootBuy:1,helmetBuy:1,gogglesBuy:1,snowwearBuy:1,buttGuardBuy:1,baseLayerBuy:1,faceCoverBuy:1,glovesBuy:1,socksBuy:1,padsBuy:1}};
 let state=load();
 const definitions=[
- ['flight','往返机票','元/人','fixed','按每人机票总价'],
+ ['flight','往返机票','元/人','fixed','填写每人机票总价'],
  ['room','大宝农家院住宿','元/晚','room','按房价/晚计算'],
  ['food','餐费估算','元/餐','fixed','按实际用餐次数调整'],
  ['song','松花湖雪票','元/天','song','数量跟随松花湖天数'],
  ['bei','北大湖雪票','元/天','bei','数量跟随北大湖天数'],
  ['coach','松花湖初级课（约2小时）','元/节','coach','按课程总价÷参加人数'],
- ['gear','雪板和雪鞋租赁','元/天','ski','按滑雪总天数'],
- ['clothes','雪服雪裤租赁','元/天','ski','按滑雪总天数'],
- ['helmet','头盔和雪镜租赁','元/天','ski','按滑雪总天数'],
+ ['boardRent','雪板+固定器租赁','元/天','ski','不含雪鞋，按滑雪总天数'],
+ ['bootRent','雪鞋租赁','元/天','ski','不租就把单价改为0'],
+ ['bootBuy','雪鞋购买','元/双','purchase','填购入总价；租鞋价设为0'],
+ ['helmetBuy','头盔购买','元/个','purchase','填购入总价'],
+ ['gogglesBuy','雪镜购买','元/副','purchase','填购入总价'],
+ ['snowwearBuy','雪服+雪裤购买','元/套','purchase','填购入总价'],
+ ['buttGuardBuy','小乌龟护臀购买','元/个','purchase','填购入总价'],
+ ['baseLayerBuy','速干衣/贴身层购买','元/套','purchase','填购入总价'],
+ ['faceCoverBuy','护脸购买','元/个','purchase','填购入总价'],
+ ['glovesBuy','手套购买','元/双','purchase','填购入总价'],
+ ['socksBuy','滑雪袜购买','元/双','purchase','填购入总价'],
+ ['padsBuy','内护（护膝/护腕等）购买','元/套','purchase','填购入总价'],
  ['car','大宝往返松花湖接送','元/次','fixed','整车估算，不含可能等候费'],
  ['insurance','滑雪/旅行保险','元','fixed','按保单总价填写'],
  ['other','其他费用','元','fixed','可填写其他开销']
 ];
-function load(){try{return {...initial,...JSON.parse(localStorage.getItem(KEY)||'{}'),prices:{...initial.prices,...(JSON.parse(localStorage.getItem(KEY)||'{}').prices||{})},counts:{...initial.counts,...(JSON.parse(localStorage.getItem(KEY)||'{}').counts||{})}}}catch{return structuredClone(initial)}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');return {...initial,...s,prices:{...initial.prices,...(s.prices||{})},counts:{...initial.counts,...(s.counts||{})}}}catch{return JSON.parse(JSON.stringify(initial))}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('saveStatus').textContent='已自动保存'}catch{document.getElementById('saveStatus').textContent='此浏览器无法保存'}}
 function num(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function fmt(v){return '¥'+Math.round(v).toLocaleString('zh-CN')}
 function render(){
  for(const id of ['songDays','beiDays','roomSplit','coachSplit','nights'])document.getElementById(id).value=state[id];
- document.getElementById('items').innerHTML=definitions.map(([key,name,unit,kind,hint])=>`<div class="item"><div><div class="title">${name}</div><div class="hint">${hint}</div></div><label class="cell"><input aria-label="${name}单价" data-key="${key}" data-field="price" type="number" min="0" step="0.01" value="${state.prices[key]}"></label><label class="cell"><input aria-label="${name}数量" data-key="${key}" data-field="count" type="number" min="0" step="1" value="${getQty(key,kind)}" ${['song','bei','ski'].includes(kind)?'readonly':''}></label><div class="amount" id="amount-${key}">¥0</div></div>`).join('');
+ document.getElementById('items').innerHTML=definitions.map(([key,name,unit,kind,hint])=>`<div class="item"><div><div class="title">${name}</div><div class="hint">${hint}</div></div><label class="cell"><input aria-label="${name}单价" data-key="${key}" data-field="price" type="number" min="0" step="0.01" value="${state.prices[key]}"></label><label class="cell"><input aria-label="${name}数量" data-key="${key}" data-field="count" type="number" min="0" step="1" value="${getQty(key,kind)}" ${['song','bei','ski','room','purchase'].includes(kind)?'readonly':''}></label><div class="amount" id="amount-${key}">¥0</div></div>`).join('');
  document.querySelectorAll('.cell input').forEach(input=>input.addEventListener('input',()=>{let k=input.dataset.key;let field=input.dataset.field;if(field==='price')state.prices[k]=numInput(input);else state.counts[k]=numInput(input);calculate();save()}));
  for(const id of ['songDays','beiDays','roomSplit','coachSplit','nights'])document.getElementById(id).addEventListener('input',()=>{state[id]=num(id);calculate();save()});
  calculate();
 }
 function numInput(el){return Math.max(0,Number(el.value)||0)}
-function getQty(key,kind){if(kind==='song')return state.songDays;if(kind==='bei')return state.beiDays;if(kind==='ski')return state.songDays+state.beiDays;if(key==='room')return state.nights;return state.counts[key]??1}
-function calculate(){let total=0;for(const [key,, ,kind] of definitions){let q=getQty(key,kind);let divide=kind==='room'?Math.max(1,state.roomSplit):kind==='coach'?Math.max(1,state.coachSplit):1;let amount=(state.prices[key]||0)*q/divide;total+=amount;let node=document.getElementById('amount-'+key);if(node)node.textContent=fmt(amount)}document.getElementById('grand').textContent=fmt(total);document.getElementById('summary').textContent=`滑雪 ${state.songDays+state.beiDays} 天 · 松花湖 ${state.songDays} 天 · 北大湖 ${state.beiDays} 天`}
+function getQty(key,kind){if(kind==='song')return state.songDays;if(kind==='bei')return state.beiDays;if(kind==='ski')return state.songDays+state.beiDays;if(kind==='room')return state.nights;if(kind==='purchase')return 1;return state.counts[key]??1}
+function calculate(){let total=0;for(const [key,,,kind] of definitions){let q=getQty(key,kind);let divide=kind==='room'?Math.max(1,state.roomSplit):kind==='coach'?Math.max(1,state.coachSplit):1;let amount=(state.prices[key]||0)*q/divide;total+=amount;let node=document.getElementById('amount-'+key);if(node)node.textContent=fmt(amount)}document.getElementById('grand').textContent=fmt(total);document.getElementById('summary').textContent=`滑雪 ${state.songDays+state.beiDays} 天 · 松花湖 ${state.songDays} 天 · 北大湖 ${state.beiDays} 天`}
 document.getElementById('reset').addEventListener('click',()=>{state=JSON.parse(JSON.stringify(initial));save();render()});
 render();
 </script></body></html>
