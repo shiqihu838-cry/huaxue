@@ -27,7 +27,7 @@
 </section></main>
 <script>
 const KEY='jilin-ski-budget-v1';
-const initial={songDays:2,beiDays:7,roomSplit:2,songCoachSplit:2,beiCoachSplit:2,carSplit:2,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coachSong:795,coachBei:800,boardRent:100,bootRent:30,bootBuy:0,helmetBuy:0,gogglesBuy:0,snowwearBuy:0,buttGuardBuy:0,baseLayerBuy:0,faceCoverBuy:0,glovesBuy:0,socksBuy:0,padsBuy:0,car:350,insurance:120,other:0},counts:{flight:1,food:22,coachSong:2,coachBei:1,car:2,insurance:1,other:1}};
+const initial={songDays:2,beiDays:7,roomSplit:2,songCoachSplit:2,beiCoachSplit:2,carSplit:2,nights:10,prices:{flight:1558,room:154.44,food:20,song:280,bei:30,coachSong:795,coachBei:800,boardRent:100,bootRent:30,bootBuy:0,helmetBuy:0,gogglesBuy:0,snowwearBuy:0,buttGuardBuy:0,baseLayerBuy:0,faceCoverBuy:0,glovesBuy:0,socksBuy:0,padsBuy:0,car:350,insurance:120,other:0},counts:{flight:1,food:22,room:10,song:2,bei:7,coachSong:2,coachBei:1,car:2,insurance:1,other:1}};
 let state=load();
 const definitions=[
  ['出行/住宿/餐饮','flight','往返机票','元/人','fixed','填写每人机票总价'],
@@ -58,7 +58,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));document.get
 function num(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function numInput(el){return Math.max(0,Number(el.value)||0)}
 function fmt(v){return '¥'+Math.round(v).toLocaleString('zh-CN')}
-function getQty(key,kind){if(kind==='song')return state.songDays;if(kind==='bei')return state.beiDays;if(kind==='ski')return state.songDays+state.beiDays;if(kind==='room')return state.nights;if(kind==='purchase')return 1;return state.counts[key]??1}
+function getQty(key,kind){if(kind==='song'||kind==='bei'||kind==='room')return state.counts[key]??1;if(kind==='ski')return state.songDays+state.beiDays;if(kind==='purchase')return 1;return state.counts[key]??1}
 function render(){
  for(const id of ['songDays','beiDays','roomSplit','songCoachSplit','beiCoachSplit','carSplit','nights'])document.getElementById(id).value=state[id];
  const root=document.getElementById('items');let lastGroup='';
@@ -68,12 +68,12 @@ function render(){
   if(group!==lastGroup){lastGroup=group;heading='<div class="group">'+group+'</div>'}
   let qty='';
   if(kind==='purchase')qty='<div class="fixedqty">1件</div>';
-  else if(['song','bei','ski','room'].includes(kind))qty='<div class="fixedqty">'+getQty(key,kind)+'</div>';
+  else if(kind==='ski')qty='<div class="fixedqty">'+getQty(key,kind)+'</div>';
   else qty='<label class="cell"><input aria-label="'+name+'数量" data-key="'+key+'" data-field="count" type="number" min="0" step="1" value="'+getQty(key,kind)+'"></label>';
   return heading+'<div class="item"><div><div class="title">'+name+'</div><div class="hint">'+hint+'</div></div><label class="cell"><input aria-label="'+name+'单价/购买价" data-key="'+key+'" data-field="price" type="number" min="0" step="0.01" value="'+state.prices[key]+'"></label>'+qty+'<div class="amount" id="amount-'+key+'">¥0</div></div>';
  }).join('');
- root.querySelectorAll('input').forEach(function(input){input.addEventListener('input',function(){const key=input.dataset.key;if(input.dataset.field==='price')state.prices[key]=numInput(input);else state.counts[key]=numInput(input);calculate();save()})});
- for(const id of ['songDays','beiDays','roomSplit','songCoachSplit','beiCoachSplit','carSplit','nights'])document.getElementById(id).addEventListener('input',function(){state[id]=num(id);calculate();save()});
+ root.querySelectorAll('input').forEach(function(input){input.addEventListener('input',function(){const key=input.dataset.key;if(input.dataset.field==='price')state.prices[key]=numInput(input);else {state.counts[key]=numInput(input);if(key==='room')state.nights=state.counts.room}calculate();save()})});
+ for(const id of ['songDays','beiDays','roomSplit','songCoachSplit','beiCoachSplit','carSplit','nights'])document.getElementById(id).addEventListener('input',function(){state[id]=num(id);if(id==='songDays')state.counts.song=state.songDays;if(id==='beiDays')state.counts.bei=state.beiDays;if(id==='nights')state.counts.room=state.nights;calculate();save()});
  calculate();
 }
 function calculate(){
