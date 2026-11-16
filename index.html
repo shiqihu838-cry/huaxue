@@ -53,7 +53,7 @@ const definitions=[
  ['交通/保险/其他','insurance','滑雪/旅行保险','元','fixed','按保单总价填写'],
  ['交通/保险/其他','other','其他费用','元','fixed','可填写其他开销']
 ];
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');const prices={...initial.prices,...(s.prices||{})};if(prices.coachSong===790)prices.coachSong=795;if(prices.coach===790)prices.coachSong=795;return {...initial,...s,songCoachSplit:s.songCoachSplit??s.coachSplit??2,beiCoachSplit:s.beiCoachSplit??2,carSplit:s.carSplit??2,prices,counts:{...initial.counts,...(s.counts||{})}}}catch{return JSON.parse(JSON.stringify(initial))}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'{}');const prices={...initial.prices,...(s.prices||{})};if(prices.coachSong===790)prices.coachSong=795;if(prices.coach===790)prices.coachSong=795;const counts={...initial.counts,...(s.counts||{})};if(!s.qtyInputsVersion){counts.room=s.nights??initial.nights;counts.song=s.songDays??initial.songDays;counts.bei=s.beiDays??initial.beiDays}const state={...initial,...s,songCoachSplit:s.songCoachSplit??s.coachSplit??2,beiCoachSplit:s.beiCoachSplit??2,carSplit:s.carSplit??2,prices,counts};if(!s.qtyInputsVersion)state.nights=counts.room;state.qtyInputsVersion=1;return state}catch{return JSON.parse(JSON.stringify(initial))}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('saveStatus').textContent='已自动保存'}catch{document.getElementById('saveStatus').textContent='此浏览器无法保存'}}
 function num(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function numInput(el){return Math.max(0,Number(el.value)||0)}
